@@ -1,0 +1,46 @@
+<section id="renta" class="section">
+	<article id="propiedad">
+		<div id="itemconteiner">
+	    <% @leases.each_with_index do |leas| %>
+	    <div class="Box">
+			<h2 class="center"><%= leas.profile.type.name %> en <%= leas.profile.property.name %></h2>
+			<p class="center"><%= leas.profile.property.address %></p>
+			<div class="ContenedorImagenes center">
+				<% leas.profile.photos.each do |image| %>
+				<%= link_to asset_path(image.photo.url(:large)), class: "picture", :title=>image.photo_descripcion,:rel=>"propidad_gal" do  %>
+              	<%= image_tag(image.photo.url(:thumb), :size=>"80x80") %>
+            <% end %>
+				<%end%><br>
+				<%= link_to raw('<i class="icon-map-marker icon-white"></i>Ver mapa'),leas.profile.property.google_iframe,:class=>"btn btn-primary btn-mini mapa"%>
+				<%= link_to raw('<i class="icon-th-list icon-white"></i>Mostrar propiedad'),
+					admin_property_path(leas.profile.property), {
+						:remote => true, 
+						'data-toggle' =>  "modal",
+						'data-target' => "#modal-window", 
+						'data-keyboard' => true,
+						'data-backdrop' => true,
+						:class => "btn btn-primary btn-mini"
+
+					}
+				%>				
+				<%= link_to raw('<i class="icon-th-list icon-white"></i>Detalles del arrendamiento'),
+					page_path(leas), {
+						:remote => true, 
+						'data-toggle' =>  "modal",
+						'data-target' => "#modal-window", 
+						'data-keyboard' => true,
+						'data-backdrop' => true,
+						:class => "btn btn-primary btn-mini"
+					}
+				%>
+				<a class="btn btn-primary btn-mini" href="#contacto_logo">Contacto</a>
+
+			</div>
+		</div>
+		<% end %>
+		</div>
+	<div class="pagina">
+   	</div>
+	</article>		
+</section >
+

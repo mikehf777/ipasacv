@@ -1,0 +1,11 @@
+<div class="btn-group pull-right">
+	<a class="btn dropdown-toggle" data-toggle="dropdown">
+		<i class="icon-user"></i> <%= current_user.email %>
+		<span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu">
+	  <li><a href="#">Perfil</a></li>
+	  <li class="divider"></li>
+	  <li><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></li>
+	</ul>
+</div>

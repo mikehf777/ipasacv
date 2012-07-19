@@ -1,0 +1,15 @@
+<%= simple_form_for([:admin, @profile], :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.input :nombre %>
+  <%= f.input :descripcion %>
+  <%= f.association :type %>
+  <%= f.association :property %>
+  <%= f.input :recamaras %>
+  <%= f.input :banos %>
+  <%= f.input :cocina %>
+  <%= f.input :sala %>
+  <%= f.input :cuarto %>
+  <%= f.simple_fields_for :photos do |builder| %>
+    <%= render :partial => 'photo_fields', :locals => { :f => builder } %>
+  <%end%>
+  <%= f.button :submit %>
+<% end %>

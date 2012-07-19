@@ -1,0 +1,11 @@
+<%= form_for [:admin, @service], :html => { :class => 'form-horizontal' } do |f| %>
+	<div class="control-group">
+		<%= f.label :nombre, :class => 'control-label' %>
+    	<div class="controls">
+      		<%= f.text_field :nombre, :class => 'text_field' %>
+    	</div>
+	</div>
+ 	<div class="form-actions">
+		<%= f.submit "Subir servicio", :class => 'btn btn-primary' %>
+	</div>
+<% end %>

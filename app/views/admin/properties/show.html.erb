@@ -1,0 +1,20 @@
+<div>
+    <% @property.pictures.each do |image| %>
+      <%= link_to image_tag(image.picture.url(:thumb)) ,
+       image.picture.url(:original), 
+       :class=>'picture',
+       :rel=>'picprofile',
+       :title=>image.picture_descripcion %>
+    <% end %>
+    <h1><%= @property.name %></h1>
+</div>
+<div class= "well">
+  <dl class="dl-horizontal">
+    <dt>Localidad:</dt>
+    <dd><%= @property.locality.name %></dd>
+    <dt>Dirección:</dt>
+    <dd><%= @property.address%></dd>
+    <dt>Descripción:</dd>
+    <dd><%= @property.description %></dt>
+  </dl>
+</div>
