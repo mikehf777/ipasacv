@@ -1,0 +1,10 @@
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      Administracion
+    </li>
+          <li class="<%= 'active' if params[:controller] == "admin/localities" %>"><%= link_to "Localidades", admin_localidades_path %></li>
+  <li class="<%= 'active' if params[:controller] == "admin/properties" %>"><%= link_to "Propiedades", admin_propiedades_path %></li>
+  <li class="<%= 'active' if params[:controller] == "admin/profiles" %>"><%= link_to "Perfiles", admin_perfiles_path %></li>
+  </ul>
+</div>

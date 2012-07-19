@@ -1,0 +1,55 @@
+@mixin linear-gradient($bottom-color, $top-color){
+	background-image: linear-gradient(bottom, $bottom-color 0%, $top-color 58%);
+	background-image: -o-linear-gradient(bottom, $bottom-color 0%, $top-color 58%);
+	background-image: -moz-linear-gradient(bottom, $bottom-color 0%, $top-color 58%);
+	background-image: -webkit-linear-gradient(bottom, $bottom-color 0%, $top-color 58%);
+	background-image: -ms-linear-gradient(bottom, $bottom-color 0%, $top-color 58%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, $bottom-color,color-stop(0.58, $top-color)));
+}
+
+@mixin box-shadow($distance) {
+	-moz-box-shadow: 0px 1px $distance black; 
+    -webkit-box-shadow: 0px 1px $distance black; 
+    box-shadow: 0px 1px $distance black;
+}
+
+@mixin scale($size){
+	-webkit-transform:	scale($size);
+ 	-moz-transform: 	scale($size);
+	-ms-transform:		scale($size);
+	transform:			scale($size);
+}
+
+#nav
+{
+	height: 30px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 10;
+	padding-left:30px;
+	@include box-shadow(5px);
+	@include linear-gradient(#222,#444);
+}
+#nav ul
+{
+	margin: 6px auto 0px;
+	width: 800px;
+	li{
+		display: inline;
+		float: left;
+		margin: 0px 10px;
+	}
+	a{
+		float: inherit;
+		text-decoration: none;
+		font-family: "mifuente-bold";
+		color: #aaa;
+		&:hover{
+			text-shadow: 0px 3px 1px black;
+			@include scale(1.10);
+			color: #eee;
+		}
+	}
+}

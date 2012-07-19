@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title><%= titulo %></title>
+	  <%= csrf_meta_tags %>
+	  <%= render "layouts/stylesheets"%>
+	</head>
+	<body class="admin">
+		<div class="container">
+			<div class="row span6 offset3">
+				<%= render 'shared/alerts'%>
+				<div class="span3 offset1">
+					<%= yield %>
+				</div>
+			</div>
+		<div>
+		<%= javascript_include_tag "application" %>
+	</body>
+</html>

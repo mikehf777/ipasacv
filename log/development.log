@@ -1,0 +1,1562 @@
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36m (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (147.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (133.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProperties (20120530165638)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "properties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "locality_id" integer, "user_id" integer, "name" varchar(255), "owner" varchar(255), "address" text, "google_maps" varchar(255), "description" text, "catastral_reference" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530165638')
+  [1m[36m (134.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLocalities (20120530165852)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "localities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530165852')
+  [1m[36m (130.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLeases (20120530165919)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "leases" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "num_int" integer, "status_renta" boolean, "precio" float, "descripcion" text, "profile_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530165919')
+  [1m[36m (139.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateVideos (20120530203914)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "property_id" integer, "descripcion" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530203914')
+  [1m[36m (139.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateServices (20120530212004)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "services" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530212004')
+  [1m[36m (117.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDuties (20120530215401)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "duties" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fecha" date, "monto" float, "property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530215401')
+  [1m[36m (106.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDocuments (20120530221358)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "documents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120530221358')
+  [1m[36m (129.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRentDocuments (20120531152306)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "rent_documents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rent_id" integer, "document_id" integer, "url" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120531152306')
+  [1m[36m (128.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSurcharges (20120531152404)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "surcharges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "folio" varchar(255), "monto" float, "invoice_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120531152404')
+  [1m[36m (128.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateInvoices (20120531153106)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "invoices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "folio" varchar(255), "monto" float, "fecha_vencimiento" date, "rent_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120531153106')
+  [1m[36m (128.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRents (20120601191956)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "rents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "leaseuser_id" integer, "fecha_inicio" date, "fecha_fin" date, "descuento" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120601191956')
+  [1m[36m (141.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePictures (20120610183543)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_upload_date" datetime, "picture_descripcion" varchar(255), "property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120610183543')
+  [1m[36m (183.0ms)[0m  [1mcommit transaction[0m
+Migrating to DeviseCreateUsers (20120611184537)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120611184537')[0m
+  [1m[35m (146.8ms)[0m  commit transaction
+Migrating to CreateTypes (20120612170529)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120612170529')[0m
+  [1m[35m (128.7ms)[0m  commit transaction
+Migrating to CreateProfiles (20120612172301)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "recamaras" integer, "banos" integer, "sala" boolean, "cocina" boolean, "cuarto" boolean, "type_id" integer, "property_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120612172301')[0m
+  [1m[35m (116.4ms)[0m  commit transaction
+Migrating to CreatePhotos (20120612213129)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_descripcion" varchar(255), "profile_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120612213129')[0m
+  [1m[35m (128.2ms)[0m  commit transaction
+  [1m[36m (1.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("documents")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("duties")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("invoices")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("leases")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("localities")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("photos")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("pictures")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("profiles")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("properties")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("rent_documents")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("rents")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("services")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("surcharges")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("types")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("videos")
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 13:25:03 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (2.1ms)
+  Rendered pages/_inicio.html.erb (4.8ms)
+  Rendered pages/_somos.html.erb (2.0ms)
+  [1m[36mLease Load (0.4ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (23.6ms)
+  Rendered pages/_mapa.html.erb (0.8ms)
+  Rendered pages/_busqueda.html.erb (0.7ms)
+  Rendered pages/_videos.html.erb (0.7ms)
+  Rendered pages/_contacto.html.erb (0.7ms)
+  Rendered pages/home.html.erb within layouts/application (112.9ms)
+Compiled jquery.fancybox.css  (69ms)  (pid 2560)
+Compiled jquery.fancybox-buttons.css  (5ms)  (pid 2560)
+Compiled jquery.fancybox-thumbs.css  (3ms)  (pid 2560)
+Compiled fancybox.css  (131ms)  (pid 2560)
+Compiled admin.css  (4381ms)  (pid 2560)
+Compiled menu.css  (46ms)  (pid 2560)
+Compiled pages.css  (183ms)  (pid 2560)
+Compiled paginas.css  (23ms)  (pid 2560)
+Compiled application.css  (4950ms)  (pid 2560)
+  Rendered layouts/_stylesheets.html.erb (4994.4ms)
+  Rendered layouts/_menu.html.erb (1.8ms)
+  Rendered layouts/_fancy.html.erb (0.8ms)
+Compiled jquery.js  (5ms)  (pid 2560)
+Compiled jquery.fancybox.js  (1ms)  (pid 2560)
+Compiled jquery.fancybox-buttons.js  (0ms)  (pid 2560)
+Compiled jquery.fancybox-thumbs.js  (0ms)  (pid 2560)
+Compiled fancybox.js  (51ms)  (pid 2560)
+Compiled jquery_ujs.js  (0ms)  (pid 2560)
+Compiled jPages.js  (2ms)  (pid 2560)
+Compiled menu.js  (0ms)  (pid 2560)
+Compiled move.js  (0ms)  (pid 2560)
+Compiled paginas.js  (0ms)  (pid 2560)
+Compiled smooth-scroll.js  (0ms)  (pid 2560)
+Compiled bootstrap-transition.js  (0ms)  (pid 2560)
+Compiled bootstrap-alert.js  (0ms)  (pid 2560)
+Compiled bootstrap-button.js  (0ms)  (pid 2560)
+Compiled bootstrap-carousel.js  (0ms)  (pid 2560)
+Compiled bootstrap-collapse.js  (0ms)  (pid 2560)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 2560)
+Compiled bootstrap-modal.js  (0ms)  (pid 2560)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 2560)
+Compiled bootstrap-tab.js  (0ms)  (pid 2560)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 2560)
+Compiled bootstrap-popover.js  (0ms)  (pid 2560)
+Compiled bootstrap-typeahead.js  (0ms)  (pid 2560)
+Compiled bootstrap.js  (353ms)  (pid 2560)
+Compiled application.js  (691ms)  (pid 2560)
+Completed 200 OK in 6054ms (Views: 6031.6ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /application.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/jquery.fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox-buttons.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox-thumbs.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /fancybox.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /admin.css - 200 OK (82ms)
+
+
+Started GET "/assets/menu.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /menu.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /pages.css - 200 OK (3ms)
+
+
+Started GET "/assets/paginas.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /paginas.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery.fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox-buttons.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery.fancybox-thumbs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /fancybox.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jPages.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /jPages.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /menu.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/move.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /move.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/paginas.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /paginas.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/smooth-scroll.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /smooth-scroll.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-transition.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-alert.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-button.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-carousel.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-collapse.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-dropdown.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:09 -0500
+Served asset /bootstrap-modal.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap-tab.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap-tooltip.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap-popover.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap-typeahead.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /bootstrap.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /application.js - 200 OK (137ms)
+
+
+Started GET "/assets/imagenes-slide/hacienda1.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /imagenes-slide/hacienda1.jpg - 304 Not Modified (11ms)
+
+
+Started GET "/assets/imagenes-slide/slide1.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /imagenes-slide/slide1.jpg - 304 Not Modified (10ms)
+
+
+Started GET "/assets/imagenes-slide/slide2.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /imagenes-slide/slide2.jpg - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/textura_fondo.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/textura_fondo.jpg - 304 Not Modified (8ms)
+
+
+Started GET "/assets/fondos_pagina/FONDO-PX.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/FONDO-PX.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/fondos_pagina/azul_ipasa.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/azul_ipasa.jpg - 304 Not Modified (11ms)
+
+
+Started GET "/assets/fondos_pagina/header-principal-con-logo.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-principal-con-logo.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/fondos_pagina/bannerhc.jpg" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/bannerhc.jpg - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/fondo.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/fondo.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/hotel.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/hotel.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/promo.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/promo.png - 304 Not Modified (88ms)
+
+
+Started GET "/assets/fondos_pagina/header-quienes-somos.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-quienes-somos.png - 304 Not Modified (12ms)
+
+
+Started GET "/assets/fondos_pagina/foto1.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/foto1.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/fondos_pagina/foto2.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/foto2.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/foto3.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/foto3.png - 304 Not Modified (8ms)
+
+
+Started GET "/assets/fondos_pagina/header-disponibles.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-disponibles.png - 304 Not Modified (8ms)
+
+
+Started GET "/assets/fondos_pagina/header-mapa.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-mapa.png - 304 Not Modified (7ms)
+
+
+Started GET "/assets/fondos_pagina/header-busqueda.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-busqueda.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/publicidad_busqueda.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/publicidad_busqueda.png - 304 Not Modified (9ms)
+
+
+Started GET "/assets/fondos_pagina/header-videos.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-videos.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/header-contacto.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/header-contacto.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/fondos_pagina/fondo-seccion-contacto.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/fondo-seccion-contacto.png - 304 Not Modified (10ms)
+
+
+Started GET "/assets/fondos_pagina/iconos-contacto.png" for 127.0.0.1 at 2012-07-07 13:25:10 -0500
+Served asset /fondos_pagina/iconos-contacto.png - 304 Not Modified (10ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2012-07-07 13:25:22 -0500
+Processing by Admin::BaseController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-07-07 13:25:22 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/login (642.1ms)
+  Rendered layouts/_stylesheets.html.erb (12.7ms)
+  Rendered shared/_alerts.html.erb (1.6ms)
+Completed 200 OK in 729ms (Views: 689.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox-buttons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox-thumbs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /fancybox.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /admin.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/menu.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/paginas.css?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /paginas.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox-buttons.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery.fancybox-thumbs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /fancybox.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jPages.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /jPages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/move.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /move.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/paginas.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /paginas.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smooth-scroll.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /smooth-scroll.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:23 -0500
+Served asset /bootstrap.js - 304 Not Modified (75ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-07 13:25:24 -0500
+Served asset /application.js - 304 Not Modified (8ms)
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:25:08 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.2ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (4.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (35.5ms)
+  Rendered pages/home.html.erb within layouts/application (51.3ms)
+Completed 500 Internal Server Error in 80ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3:     	<%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__1007745243_79169750'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb___1023504015_78630380'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (71.5ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (94.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:25:36 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (76.7ms)
+  [1m[36mLease Load (0.2ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (4.0ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.0ms)
+  Rendered pages/_videos.html.erb (0.0ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (92.4ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3:     	<%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__1007745243_79169750'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb___1023504015_78630380'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (31.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:26:37 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.2ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (4.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (3.2ms)
+  Rendered pages/home.html.erb within layouts/application (18.9ms)
+Completed 500 Internal Server Error in 126ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__1007745243_79001570'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb___1023504015_78630380'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.6ms)
+Creating scope :page. Overwriting existing method User.page.
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:30:33 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (2.1ms)
+  Rendered pages/_inicio.html.erb (4.6ms)
+  Rendered pages/_somos.html.erb (1.9ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (77.2ms)
+  Rendered pages/_mapa.html.erb (0.8ms)
+  Rendered pages/_busqueda.html.erb (0.7ms)
+  Rendered pages/_videos.html.erb (0.7ms)
+  Rendered pages/_contacto.html.erb (536.8ms)
+  Rendered pages/home.html.erb within layouts/application (648.2ms)
+Completed 500 Internal Server Error in 816ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__697511205_90461960'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb___515000444_90398460'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.0ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (31.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:32:28 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (1.9ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.6ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.7ms)
+  Rendered pages/home.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__697511205_90461960'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb___515000444_90398460'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (90.3ms)
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:33:03 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (2.1ms)
+  Rendered pages/_inicio.html.erb (4.6ms)
+  Rendered pages/_somos.html.erb (2.0ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (77.5ms)
+  Rendered pages/_mapa.html.erb (0.8ms)
+  Rendered pages/_busqueda.html.erb (0.7ms)
+  Rendered pages/_videos.html.erb (0.7ms)
+  Rendered pages/_contacto.html.erb (540.5ms)
+  Rendered pages/home.html.erb within layouts/application (652.3ms)
+Completed 500 Internal Server Error in 822ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__18574282_88648950'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__87878898_88585500'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.1ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:33:28 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.6ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__18574282_88648950'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__87878898_88585500'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.6ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (90.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:33:30 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (1.6ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.7ms)
+  Rendered pages/home.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__18574282_88648950'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__87878898_88585500'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.1ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:33:34 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.6ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__18574282_88648950'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__87878898_88585500'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.0ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:33:35 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (1.6ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.7ms)
+  Rendered pages/home.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb__18574282_88648950'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__87878898_88585500'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.1ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.3ms)
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:39:33 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (2.1ms)
+  Rendered pages/_inicio.html.erb (4.7ms)
+  Rendered pages/_somos.html.erb (2.0ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (77.0ms)
+  Rendered pages/_mapa.html.erb (0.8ms)
+  Rendered pages/_busqueda.html.erb (0.7ms)
+  Rendered pages/_videos.html.erb (0.7ms)
+  Rendered pages/_contacto.html.erb (535.3ms)
+  Rendered pages/home.html.erb within layouts/application (646.8ms)
+Completed 500 Internal Server Error in 815ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.0ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:45:31 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (4.3ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.5ms)
+  Rendered pages/home.html.erb within layouts/application (16.4ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (83.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (105.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:49:46 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (1.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:49:51 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (13.1ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:49:56 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (1.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (1.6ms)
+  Rendered pages/home.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.9ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:50:48 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.2ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (4.2ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (97.2ms)
+  Rendered pages/home.html.erb within layouts/application (112.3ms)
+Completed 500 Internal Server Error in 143ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xa1d94a8>:0xa1d7950>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.8ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:51:18 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (4.3ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (33.0ms)
+  Rendered pages/home.html.erb within layouts/application (47.9ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xb876e18>:0xb87449c>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (31.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:53:45 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (4.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (104.2ms)
+  Rendered pages/home.html.erb within layouts/application (119.5ms)
+Completed 500 Internal Server Error in 150ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xb465f18>:0xb39da68>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.9ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:56:41 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (4.5ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (33.0ms)
+  Rendered pages/home.html.erb within layouts/application (48.2ms)
+Completed 500 Internal Server Error in 155ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xbb79f20>:0xbb78738>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:56:44 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (1.9ms)
+  Rendered pages/_somos.html.erb (0.6ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.3ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.0ms)
+  Rendered pages/_videos.html.erb (0.0ms)
+  Rendered pages/_contacto.html.erb (21.6ms)
+  Rendered pages/home.html.erb within layouts/application (32.7ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xbb79f20>:0xb34c3ac>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.4ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (30.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:56:56 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[36mLease Load (0.2ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (4.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (33.0ms)
+  Rendered pages/home.html.erb within layouts/application (47.9ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xb6b5200>:0xb8882e4>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_91096720'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (13.0ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 14:59:10 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (100.7ms)
+  Rendered pages/home.html.erb within layouts/application (112.6ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0xb6b5200>:0xbb8bb6c>):
+    1: <section id="contacto" class="section">   	     
+    2:     <div id="div_contacto">
+    3: 	    <%= simple_form_for @message do |f| %>
+    4: 		    <%= f.input :nombre %>
+    5: 		    <%= f.input :email %>
+    6: 		    <%= f.input :asunto %>
+  app/views/pages/_contacto.html.erb:3:in `_app_views_pages__contacto_html_erb___313523640_94509300'
+  app/views/pages/home.html.erb:31:in `_app_views_pages_home_html_erb__132261743_91008590'
+
+
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (12.9ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+  Rendered /home/Saulo/.gem/ruby/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 15:00:09 -0500
+Creating scope :page. Overwriting existing method User.page.
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.8ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[36mLease Load (0.3ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (4.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (43.0ms)
+  Rendered pages/home.html.erb within layouts/application (58.2ms)
+  Rendered layouts/_stylesheets.html.erb (54.4ms)
+  Rendered layouts/_menu.html.erb (1.7ms)
+  Rendered layouts/_fancy.html.erb (0.7ms)
+Completed 200 OK in 300ms (Views: 284.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /application.css - 304 Not Modified (37ms)
+
+
+Started GET "/assets/jquery.fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox-buttons.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox-thumbs.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /fancybox.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/menu.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /menu.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/paginas.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /paginas.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.js - 304 Not Modified (82ms)
+
+
+Started GET "/assets/jquery.fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox-buttons.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery.fancybox-thumbs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /fancybox.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jPages.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /jPages.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /menu.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/move.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /move.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/paginas.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /paginas.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/smooth-scroll.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /smooth-scroll.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-transition.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-alert.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-button.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-carousel.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-collapse.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-dropdown.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-modal.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-tab.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-tooltip.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-popover.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap-typeahead.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /bootstrap.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/imagenes-slide/hacienda1.jpg" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /imagenes-slide/hacienda1.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/assets/imagenes-slide/slide1.jpg" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /imagenes-slide/slide1.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/assets/imagenes-slide/slide2.jpg" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /imagenes-slide/slide2.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/assets/fondos_pagina/foto1.png" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /fondos_pagina/foto1.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/fondos_pagina/foto2.png" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /fondos_pagina/foto2.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/fondos_pagina/foto3.png" for 127.0.0.1 at 2012-07-07 15:00:10 -0500
+Served asset /fondos_pagina/foto3.png - 304 Not Modified (3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.0ms)
+  Rendered pages/_somos.html.erb (0.7ms)
+  [1m[35mLease Load (0.3ms)[0m  SELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'
+  Rendered pages/_enrenta.html.erb (1.4ms)
+  Rendered pages/_mapa.html.erb (0.1ms)
+  Rendered pages/_busqueda.html.erb (0.1ms)
+  Rendered pages/_videos.html.erb (0.1ms)
+  Rendered pages/_contacto.html.erb (17.4ms)
+  Rendered pages/home.html.erb within layouts/application (29.2ms)
+  Rendered layouts/_stylesheets.html.erb (93.8ms)
+  Rendered layouts/_menu.html.erb (0.6ms)
+  Rendered layouts/_fancy.html.erb (0.1ms)
+Completed 200 OK in 160ms (Views: 159.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /jquery.fancybox.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /jquery.fancybox-buttons.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /jquery.fancybox-thumbs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fancybox.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /fancybox.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/menu.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:30 -0500
+Served asset /menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/paginas.css?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /paginas.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /jquery.fancybox.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /jquery.fancybox-buttons.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /jquery.fancybox-thumbs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fancybox.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:32 -0500
+Served asset /fancybox.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jPages.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /jPages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/move.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /move.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/paginas.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /paginas.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smooth-scroll.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:34 -0500
+Served asset /smooth-scroll.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:36 -0500
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:38 -0500
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /bootstrap.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/imagenes-slide/hacienda1.jpg" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /imagenes-slide/hacienda1.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/imagenes-slide/slide1.jpg" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /imagenes-slide/slide1.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/imagenes-slide/slide2.jpg" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /imagenes-slide/slide2.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fondos_pagina/foto1.png" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /fondos_pagina/foto1.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fondos_pagina/foto2.png" for 127.0.0.1 at 2012-07-07 15:00:40 -0500
+Served asset /fondos_pagina/foto2.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fondos_pagina/foto3.png" for 127.0.0.1 at 2012-07-07 15:00:42 -0500
+Served asset /fondos_pagina/foto3.png - 304 Not Modified (0ms)

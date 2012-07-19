@@ -1,0 +1,22 @@
+    <% @lease.profile.photos.each do |image| %>
+      <%= link_to image_tag(image.photo.url(:thumb)) , image.photo.url(:original),:class=>'picture' %>
+    <% end %>
+<div class="page-header">
+  <h1><%= @lease.profile.type.name %> en <%= @lease.profile.property.name %></h1>
+</div>
+<div class= "well">
+  <strong><%= @lease.profile.type.name %>#</strong>
+  <%= @lease.num_int%></br></br>
+  <strong>Dirección: </strong>
+  <%= @lease.profile.property.address%></br></br>
+  <strong>Caracteristicas: </strong>
+  <%= @lease.descripcion %></br></br>
+    <strong>Servicios: </strong>
+ <% @lease.profile.property.services.each do |ser| %>
+ 	<%= ser.nombre %></br></br>
+ <% end %>
+ </br>
+  <strong>Precio</strong>
+  <h3> $ <%= @lease.precio%></h3></br>
+
+</div>

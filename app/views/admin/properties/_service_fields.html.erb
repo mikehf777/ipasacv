@@ -1,0 +1,6 @@
+<% unless f.object.new_record? %>
+	<%= f.input :nombre %>
+	<%= f.input :_destroy, :as => :check_boxes %>
+<% else %>
+    <%= f.input :nombre %>
+<%end%>

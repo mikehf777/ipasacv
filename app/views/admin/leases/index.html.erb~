@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>Lista de arrendamientos</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Número interno</th>
+      <th>Estado</th>
+      <th>Precio</th>
+      <th>Descripción</th>
+	  <th>Perfil de Inmueble</th>
+	  <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leases.each do |lease| %>
+      <tr>
+        <td><%= lease.num_int %></td>
+        <td><%= lease.en_renta? %></td>
+        <td><%= lease.precio %></td>
+        <td class="description"><%= lease.descripcion %></td>
+        <td><%= lease.profile.nombre %></td>
+        <td>
+         <%= link_to raw('<i class="icon-th-list icon-white"></i>Mostrar'),
+          admin_lease_path(lease),
+           {:remote => true ,
+           	 'data-toggle' =>  "modal",
+           	 'data-target' => "#modal-window", 
+           	 'data-keyboard' => true , 
+           	 'data-backdrop' => true , 
+           	 :class => "btn btn-mini btn-success"
+           	 } 
+           	 %>
+           	 
+         <%= link_to raw('<i class="icon-pencil icon-white"></i>Editar'),
+          edit_admin_lease_path(lease) , 
+          {:remote => true , 
+          	'data-toggle' =>  "modal", 
+          	'data-target' => "#modal-window", 
+          	'data-keyboard' => true , 
+          	'data-backdrop' => true , 
+          	:class => "btn btn-mini btn-primary"
+          	} 
+          	%>
+          	
+          <%= link_to raw('<i class="icon-trash icon-white"></i>Eliminar'),  
+          admin_lease_path(lease), 
+          :method => :delete,
+          :confirm => '¿Estas Seguro?', 
+          :class => 'btn btn-mini btn-danger' 
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

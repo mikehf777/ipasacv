@@ -1,0 +1,12 @@
+<section id="contacto" class="section">   	     
+    <div id="div_contacto">
+	    <%= simple_form_for @message, :html => { :class => 'form-horizontal'} do |f| %>
+		    <%= f.input :nombre %>
+		    <%= f.input :email %>
+		    <%= f.input :asunto %>
+		    <%= f.input :mensaje, :as => :text, :input_html => { :cols => 30, :rows => 5 } %>
+		    <%= f.button :submit, :value => 'Enviar' %>
+	    <% end %>
+    </div>
+	<article id="imagen_foot"></article>	
+</section>

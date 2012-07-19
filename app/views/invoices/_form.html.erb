@@ -1,0 +1,32 @@
+<%= form_for @invoice, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :folio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :folio, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :monto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :monto, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fecha_vencimiento, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :fecha_vencimiento, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :rent_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :rent_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                invoices_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title><%= titulo %></title>
+	  <%= csrf_meta_tags %>
+	  <%= render "layouts/stylesheets"%>
+	</head>
+	<body class="admin">
+		<%= render "layouts/admin/navbar" %>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+		  			<%= render 'layouts/admin/lateralmenu'%>
+		  		</div>
+			  	<div class="span9">
+			  		<%= render 'shared/alerts'%>
+			  		<%= render  "layouts/fancy" %>
+					<section>
+						<div >
+							<%= yield %>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+			<footer>
+				<%= render 'layouts/admin/footer'%>
+				<%= debug(params) if Rails.env.development? %>
+			</footer>
+		<%= javascript_include_tag "application" %>
+	</body>
+</html>

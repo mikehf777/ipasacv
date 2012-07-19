@@ -1,0 +1,15 @@
+<%= simple_form_for([:admin, @property], :html => {:class => 'form-horizontal' }) do |f| %>
+	<%= f.association :locality %>
+	<%= f.input :name %>
+	<%= f.input :address %>
+	<%= f.input :catastral_reference %>
+	<%= f.input :google_maps %>
+	<%= f.input :description %>
+	<%= f.simple_fields_for :services do |builder| %>
+		<%= render :partial => 'service_fields', :locals => { :f => builder } %>
+	<% end %>
+	<%= f.simple_fields_for :pictures do |builder| %>
+		<%= render :partial => 'picture_fields', :locals => { :f => builder } %>
+	<% end %>
+	<%= f.button :submit %>
+<% end %>
