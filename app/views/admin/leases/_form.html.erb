@@ -1,8 +1,0 @@
-<%= simple_form_for [:admin, @lease], :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.association :profile %>
-    <%= f.input :num_int %>
-    <%= f.input :status_renta, :as => :boolean %>
-    <%= f.input :precio %>
-    <%= f.input :descripcion %>
-    <%= f.submit %>
-<% end %>
