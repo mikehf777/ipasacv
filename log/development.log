@@ -1846,3 +1846,277 @@ Served asset /fondos_pagina/header-disponibles.png - 304 Not Modified (4ms)
 
 Started GET "/assets/fondos_pagina/header-busqueda.png" for 127.0.0.1 at 2012-07-07 19:40:02 -0500
 Served asset /fondos_pagina/header-busqueda.png - 304 Not Modified (4ms)
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-19 20:06:41 -0500
+Processing by PagesController#home as HTML
+Creating scope :page. Overwriting existing method Lease.page.
+  Rendered pages/_slideshow.html.erb (0.9ms)
+  Rendered pages/_inicio.html.erb (2.1ms)
+  Rendered pages/_somos.html.erb (0.8ms)
+  [1m[36mLease Load (0.2ms)[0m  [1mSELECT "leases".* FROM "leases" WHERE "leases"."status_renta" = 'f'[0m
+  Rendered pages/_enrenta.html.erb (47.9ms)
+  Rendered pages/_mapa.html.erb (0.4ms)
+  Rendered pages/_busqueda.html.erb (0.4ms)
+  Rendered pages/_videos.html.erb (0.3ms)
+  Rendered pages/_contacto.html.erb (348.0ms)
+  Rendered pages/home.html.erb within layouts/application (413.0ms)
+Compiled jquery.fancybox.css  (4ms)  (pid 12912)
+Compiled jquery.fancybox-buttons.css  (2ms)  (pid 12912)
+Compiled jquery.fancybox-thumbs.css  (1ms)  (pid 12912)
+Compiled fancybox.css  (78ms)  (pid 12912)
+Compiled admin.css  (2049ms)  (pid 12912)
+Compiled application.css  (2152ms)  (pid 12912)
+  Rendered layouts/_stylesheets.html.erb (2240.3ms)
+  Rendered layouts/_menu.html.erb (1.2ms)
+  Rendered layouts/_fancy.html.erb (0.5ms)
+Compiled jquery.js  (2ms)  (pid 12912)
+Compiled jquery.fancybox.js  (0ms)  (pid 12912)
+Compiled jquery.fancybox-buttons.js  (0ms)  (pid 12912)
+Compiled jquery.fancybox-thumbs.js  (0ms)  (pid 12912)
+Compiled fancybox.js  (74ms)  (pid 12912)
+Compiled jquery_ujs.js  (0ms)  (pid 12912)
+Compiled bootstrap-transition.js  (0ms)  (pid 12912)
+Compiled bootstrap-alert.js  (0ms)  (pid 12912)
+Compiled bootstrap-button.js  (0ms)  (pid 12912)
+Compiled bootstrap-carousel.js  (0ms)  (pid 12912)
+Compiled bootstrap-collapse.js  (0ms)  (pid 12912)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 12912)
+Compiled bootstrap-modal.js  (0ms)  (pid 12912)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 12912)
+Compiled bootstrap-tab.js  (0ms)  (pid 12912)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 12912)
+Compiled bootstrap-popover.js  (0ms)  (pid 12912)
+Compiled bootstrap-typeahead.js  (0ms)  (pid 12912)
+Compiled bootstrap.js  (198ms)  (pid 12912)
+Compiled application.js  (316ms)  (pid 12912)
+Completed 200 OK in 3098ms (Views: 3084.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /application.css - 200 OK (93ms)
+
+
+Started GET "/assets/jquery.fancybox.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox.css - 200 OK (2ms)
+
+
+Started GET "/assets/menu.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /menu.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox-buttons.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox-thumbs.css - 200 OK (2ms)
+
+
+Started GET "/assets/fancybox.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fancybox.css - 200 OK (5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /admin.css - 200 OK (7ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /pages.css - 200 OK (1ms)
+
+
+Started GET "/assets/paginas.css?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /paginas.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.fancybox.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.fancybox-buttons.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox-buttons.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.fancybox-thumbs.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery.fancybox-thumbs.js - 200 OK (2ms)
+
+
+Started GET "/assets/fancybox.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fancybox.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jPages.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /jPages.js - 200 OK (1ms)
+
+
+Started GET "/assets/move.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /move.js - 200 OK (2ms)
+
+
+Started GET "/assets/menu.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /menu.js - 200 OK (1ms)
+
+
+Started GET "/assets/paginas.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /paginas.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-alert.js - 200 OK (3ms)
+
+
+Started GET "/assets/smooth-scroll.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /smooth-scroll.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-transition.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-button.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-carousel.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-collapse.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-dropdown.js - 200 OK (68ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-modal.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-tab.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-scrollspy.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-popover.js - 200 OK (4ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-typeahead.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap.js - 200 OK (15ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /bootstrap-tooltip.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /application.js - 200 OK (31ms)
+
+
+Started GET "/assets/imagenes-slide/hacienda1.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /imagenes-slide/hacienda1.jpg - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/textura_fondo.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/textura_fondo.jpg - 200 OK (1ms)
+
+
+Started GET "/assets/imagenes-slide/slide1.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /imagenes-slide/slide1.jpg - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/FONDO-PX.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/FONDO-PX.png - 200 OK (2ms)
+
+
+Started GET "/assets/imagenes-slide/slide2.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /imagenes-slide/slide2.jpg - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/azul_ipasa.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/azul_ipasa.jpg - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/header-principal-con-logo.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/header-principal-con-logo.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/bannerhc.jpg" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/bannerhc.jpg - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/fondo.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/fondo.png - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/hotel.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/hotel.png - 200 OK (4ms)
+
+
+Started GET "/assets/fondos_pagina/promo.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/promo.png - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/header-quienes-somos.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/header-quienes-somos.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/foto2.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/foto2.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/foto3.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/foto3.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/foto1.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/foto1.png - 200 OK (7ms)
+
+
+Started GET "/assets/fondos_pagina/header-mapa.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/header-mapa.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/header-disponibles.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/header-disponibles.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/header-busqueda.png" for 127.0.0.1 at 2012-07-19 20:06:44 -0500
+Served asset /fondos_pagina/header-busqueda.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/publicidad_busqueda.png" for 127.0.0.1 at 2012-07-19 20:06:45 -0500
+Served asset /fondos_pagina/publicidad_busqueda.png - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/header-videos.png" for 127.0.0.1 at 2012-07-19 20:06:45 -0500
+Served asset /fondos_pagina/header-videos.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/header-contacto.png" for 127.0.0.1 at 2012-07-19 20:06:45 -0500
+Served asset /fondos_pagina/header-contacto.png - 200 OK (2ms)
+
+
+Started GET "/assets/fondos_pagina/fondo-seccion-contacto.png" for 127.0.0.1 at 2012-07-19 20:06:45 -0500
+Served asset /fondos_pagina/fondo-seccion-contacto.png - 200 OK (1ms)
+
+
+Started GET "/assets/fondos_pagina/iconos-contacto.png" for 127.0.0.1 at 2012-07-19 20:06:45 -0500
+Served asset /fondos_pagina/iconos-contacto.png - 200 OK (1ms)
