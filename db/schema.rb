@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612213129) do
+ActiveRecord::Schema.define(:version => 20120720164813) do
 
   create_table "documents", :force => true do |t|
     t.string   "nombre"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20120612213129) do
     t.integer  "property_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image_content_type"
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_description"
+    t.integer  "video_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "invoices", :force => true do |t|
@@ -159,7 +169,6 @@ ActiveRecord::Schema.define(:version => 20120612213129) do
 
   create_table "videos", :force => true do |t|
     t.string   "url"
-    t.integer  "property_id"
     t.text     "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

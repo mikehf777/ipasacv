@@ -17,12 +17,8 @@ class Property < ActiveRecord::Base
   :reject_if => lambda { |a| a[:picture_descripcion].blank? }, 
   :allow_destroy => true
 
-  validates :locality_id, presence: true
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :google_maps, presence: true
-  validates :description, presence: true
-  validates :catastral_reference, presence: true
+  validates :locality_id,:name, :address, :google_maps,
+    :description, :catastral_reference, presence: true
 
   def google_iframe
     "#{self.google_maps}&amp;output=embed"

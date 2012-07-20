@@ -5,8 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th>Nombre</th>
+      <th>Dirección</th>
       <th>Localidad</th>
       <th>Opciones</th>
     </tr>
@@ -14,7 +14,7 @@
   <tbody>
     <% @properties.each do |property| %>
       <tr>
-        <td><%=  property.name %></td>
+        <td><%= property.name %></td>
         <td><%= property.address %></td>
         <td><%= property.locality.name %></td>
         <td>

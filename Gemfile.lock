@@ -197,6 +197,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   fancybox-rails!
+  i18n
   jquery-rails
   paperclip (~> 3.0)
   pg (= 0.12.2)

@@ -39,3 +39,4 @@ group :assets do
 	gem 'fancybox-rails', :git => 'https://github.com/sverigemeny/fancybox-rails'
 end
 gem 'therubyracer', :platforms => :ruby 
+gem "i18n"
