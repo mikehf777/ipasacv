@@ -348,19 +348,22 @@ margin-top:10px;
 }
 
 /* ------------------------------------------SECCION CONTACTO ----------------------------------------*/
-
-#contacto {     
-}
-
 #div_contacto {
     margin:0 auto;   
 	width: 440px;
     height: 320px;
-	background-image: url(fondos_pagina/fondo-seccion-contacto.png);
-	position:relative;
-	top:10px;
-	border:0px;
-	@include border-radius(10px); 
+	#new_message{
+		background-image: url(fondos_pagina/fondo-seccion-contacto.png);
+		position:relative;
+		@include border-radius(10px);
+		padding:20px 0px;
+		label{
+			color:white;
+		}
+		button.btn, input[type="submit"].btn{
+			margin-left:190px;
+		}
+	}
 }
 
 #imagen_foot {
@@ -368,7 +371,7 @@ margin-top:10px;
 	width: 900px;
 	height: 200px;
 	background-image: url(fondos_pagina/iconos-contacto.png);
-	border:0px;  
+	border:0px;
 }
 
 .Detalles {

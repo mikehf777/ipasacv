@@ -32,9 +32,8 @@ Ipasa::Application.routes.draw do
       resources :services
       resources :types
   end
-
-  match 'message' => 'messages#new', :as => 'message', :via => :get
-  match 'message' => 'messages#create', :as => 'message', :via => :post
+  match 'message'   => 'messages#new', :as => 'message', :via => :get
+  match 'message'   => 'messages#create', :as => 'message', :via => :post
   
   
 
