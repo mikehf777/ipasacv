@@ -9,6 +9,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    1.times { @video.images.build }
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @video }
@@ -17,6 +18,7 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    1.times { @video.images.build }
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @video }
