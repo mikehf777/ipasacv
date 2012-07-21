@@ -1,8 +1,8 @@
 /* when document is ready */
     $(function(){
     /* initiate the plugin */
-        $("div.pagina").jPages({
-        containerID  : "itemconteiner",
+        $("div.paginas").jPages({
+        containerID  : "itemContainer",
         perPage      : 3,
         startPage    : 1,
         startRange   : 1,

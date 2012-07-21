@@ -1,10 +1,14 @@
 <section id="renta" class="section">
 	<article id="propiedad">
-		<div id="itemconteiner">
+			<div id="hacker-list">
+<input class="search iniciosrch" onclick="this.value=''" placeholder="Escriba aqui"/>
+<input class="search buscarsrch" onclick="this.value=''" placeholder="Escriba aqui" />
+			<ul class="list" id="itemContainer">
 	    <% @leases.each_with_index do |leas| %>
-	    <div class="Box">
-			<h2 class="center"><%= leas.profile.type.name %> en <%= leas.profile.property.name %></h2>
-			<p class="center"><%= leas.profile.property.address %></p>
+	    <li>><div class="Box">
+			<h2 class="center name"><%= leas.profile.type.name %> en <%= leas.profile.property.name %></h2>
+			<p class="center dir"><%= leas.profile.property.address %></p>
+			<p class="mas">$ <%= leas.precio%> precio <%=leas.descripcion%> <%=leas.profile.property.locality.name%> <%=leas.profile.property.description%></p>
 			<div class="ContenedorImagenes center">
 				<% leas.profile.photos.each do |image| %>
 				<%= link_to asset_path(image.photo.url(:large)), class: "picture", :title=>image.photo_descripcion,:rel=>"propidad_gal" do  %>
@@ -36,11 +40,13 @@
 				<a class="btn btn-primary btn-mini" href="#contacto_logo">Contacto</a>
 
 			</div>
-		</div>
+		</div></li>		
 		<% end %>
+		</ul>
 		</div>
-	<div class="pagina">
-   	</div>
+		<div class="paginas">
+   		</div>	
+		
 	</article>		
 </section >
 

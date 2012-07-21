@@ -263,6 +263,17 @@ margin-top:10px;
     left:25px;
     position: relative;
     @include border-radius(10px); 
+      p {
+    font-size:1.1em;
+    text-align:justify;
+    text-indent:10px;
+    line-height: 1.3em;
+    color:white;
+      font-family:"mifuente-normal";
+      // word-spacing: 10px;
+      letter-spacing: 1px;
+      text-shadow:0 1px 2px black;
+  }
 }
 #publicidad_busqueda {
 	position: relative;
@@ -423,3 +434,48 @@ margin-top:10px;
     z-index: 10000;
 }
 .modal-backdrop {z-index: 0;}
+
+.iniciosrch{
+  position:absolute;
+  top:360px;
+  margin-left:80px;
+  width:140px;
+  z-index:10;
+}
+.buscarIn{
+  position:relative;
+  top:105px;
+  width:88px;
+  margin-left:auto;
+  margin-right:auto;
+  
+}
+.btn-buscarin{
+  position:relative;
+  top:135px;
+  margin-left:17px;
+  width:140px;
+}
+.buscarsrch{
+  position:absolute;
+  top:3750px;
+  margin-left:100px;
+  z-index:5;
+  width:300px;
+}
+p.busca{
+      height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 60px;
+    width: 380px;
+}
+.btnbusqueda{
+  position:relative;
+  top:65px;
+  margin-left:190px;
+}
+.mas{
+  display:none;
+}

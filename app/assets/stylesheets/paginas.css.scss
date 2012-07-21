@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.pagina {
+.paginas {
     top:30px;
     height: 30px;
     margin-left:auto;
@@ -12,34 +12,34 @@
     text-align:center;
 }
 
-.pagina a {
+.paginas a {
   font-size: 18px;
   cursor: pointer;
   margin: 0 5px;
   color: #bbb;
 }
 
-.pagina a:hover {
+.paginas a:hover {
   background-color: #222;
   color: #fff;
 }
 
-.pagina a.jp-previous { margin-right: 15px; }
-.pagina a.jp-next { margin-left: 15px; }
+.paginas a.jp-previous { margin-right: 15px; }
+.paginas a.jp-next { margin-left: 15px; }
 
-.pagina a.jp-current, a.jp-current:hover { 
+.paginas a.jp-current, a.jp-current:hover { 
   color: #FF4242;
   font-weight: bold;
 }
 
-.pagina a.jp-disabled, a.jp-disabled:hover {
+.paginas a.jp-disabled, a.jp-disabled:hover {
   color: #333;
 }
 
-.pagina a.jp-current, a.jp-current:hover,
-.pagina a.jp-disabled, a.jp-disabled:hover {
+.paginas a.jp-current, a.jp-current:hover,
+.paginas a.jp-disabled, a.jp-disabled:hover {
   cursor: default; 
   background: none;
 }
 
-.pagina span { margin: 0 5px; }
+.paginas span { margin: 0 5px; }

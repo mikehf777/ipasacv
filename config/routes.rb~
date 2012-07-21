@@ -16,7 +16,6 @@ Ipasa::Application.routes.draw do
   resources :localities
   resources :properties
   resources :messages
-  resources :pages
   
   namespace :admin do
     root :to => 'base#index'

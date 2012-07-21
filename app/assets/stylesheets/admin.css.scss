@@ -30,11 +30,8 @@ $grayMediumLight: #eaeaea;
 
 p.description
 {
-  width:25em; 
-  word-wrap:break-word;
+width:25em; 
+word-wrap:break-word;
 }
 
-.form-horizontal .control-label{
-    text-transform: capitalize;
-}
 @import "bootswatch/cerulean/bootswatch"

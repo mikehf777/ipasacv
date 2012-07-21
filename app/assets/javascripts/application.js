@@ -35,4 +35,14 @@ $(document).ready(function() {
 	'type'				:'image',	
 	});
 	
+	var options = {
+    valueNames: [ 'name', 'dir','mas' ]
+		};
+
+	var hackerList = new List('hacker-list', options);
+	
 });
+
+
+
+
