@@ -4,8 +4,8 @@ class Property < ActiveRecord::Base
   belongs_to :user
   has_many :duties
   has_many :videos
-  has_many :leases
-  has_many :profiles
+  has_many :leases 
+  has_many :profiles , :dependent => :destroy
 
   has_many :services , :dependent  => :destroy
   accepts_nested_attributes_for :services , 
