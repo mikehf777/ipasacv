@@ -1,11 +1,7 @@
 <ul class="nav nav-tabs">
-	<li class="active">
-  		<%= link_to "Lista", admin_localities_path(:format => :js) , :remote => true , 'data-toggle' => 'tab' %>
-	</li>
-  	<li>
-  		<%= link_to "Nueva  Localidad", {:controller => "localities", :action => "new" , :format => :js}, :remote => true , 'data-toggle' => 'tab'%>
-  	</li>
+	<li class="active"><%= link_to_index_tab("localities")%></li>
+	<li><%= link_to_new_tab("localities")%></li>
 </ul>
- <div id="content" class="tab-pane active">
+<div id="content" class="tab-pane active">
 	<%= render(:file => 'admin/localities/index') %>
 </div>

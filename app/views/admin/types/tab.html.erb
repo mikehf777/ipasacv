@@ -1,11 +1,7 @@
 <ul class="nav nav-tabs">
-	<li class="active">
-  		<%= link_to "Lista", admin_types_path(:format => :js) , :remote => true , 'data-toggle' => 'tab' %>
-	</li>
-  	<li>
-  		<%= link_to "Nuevo Tipo de Inmueble", {:controller => "types", :action => "new" , :format => :js}, :remote => true , 'data-toggle' => 'tab'%>
-  	</li>
+	<li class="active"><%= link_to_index_tab("types")%></li>
+	<li><%= link_to_new_tab("types")%></li>
 </ul>
- <div id="content" class="tab-pane active">
+<div id="content" class="tab-pane active">
 	<%= render(:file => 'admin/types/index') %>
 </div>

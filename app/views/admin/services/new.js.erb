@@ -1,4 +1,4 @@
 $(document).ready(function() {
 	$('#content').empty();
-    $('#content').html("<%= escape_javascript render(:file => 'admin/services/new', :formats => [:html])  %>");
+    $('#content').html("<%= escape_javascript render :partial => 'form' %>");
 });

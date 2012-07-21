@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs">
-  <li class="active"><%= link_to "Lista", admin_leases_path(:format => :js) , :remote => true , 'data-toggle' => 'tab' %></li>
-  <li><%= link_to "Nuevo Arrendamiento", {:controller => "leases", :action => "new" , :format => :js}, :remote => true , 'data-toggle' => 'tab'%></li>
+	<li class="active"><%= link_to_index_tab("leases")%></li>
+	<li><%= link_to_new_tab("leases")%></li>
 </ul>
- <div id="content" class="tab-pane active">
-  <%= render(:file => 'admin/leases/index') %>
+<div id="content" class="tab-pane active">
+	<%= render(:file => 'admin/leases/index') %>
 </div>
  

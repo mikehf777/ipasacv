@@ -1,9 +1,9 @@
-<% if @property.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@property.errors.count, "error") %>.
+      The form contains <%= pluralize(object.errors.count, "error") %>.
       <ul>
-      <% @property.errors.full_messages.each do |msg| %>
+      <% object.errors.full_messages.each do |msg| %>
         <li>* <%= msg %></li>
       <% end %>
       </ul>

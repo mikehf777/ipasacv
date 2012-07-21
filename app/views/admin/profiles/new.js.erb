@@ -1,3 +1,4 @@
 $(document).ready(function() {
-    $('#content').html("<%= escape_javascript render(:file => 'admin/profiles/new', :formats => [:html])  %>");
+	$('#content').empty();
+    $('#content').html("<%= escape_javascript render :partial => 'form' %>");
 });

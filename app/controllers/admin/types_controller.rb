@@ -8,14 +8,6 @@ class Admin::TypesController < Admin::ResourceController
     end
   end
 
-  def show
-    @type = Type.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @type }
-    end
-  end
-
   def new
     @type = Type.new
     @titulo = "Nuevo Tipo de Inmueble"

@@ -1,7 +1,4 @@
-<%- model_class = Locality.new.class -%>
-<div class="page-header">
-  <h1>Lista de Localidades</h1>
-</div>
+<h1><%= @titulo %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,15 +7,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @localities.each do |locality| %>
-      <tr>
-        <td><%= locality.name %></td>
-        <td>
-          <%= link_to 'Editar', edit_admin_locality_path(locality) , {:remote => true , 'data-toggle' =>  "modal", 'data-target' => "#modal-window", 'data-keyboard' => true , 'data-backdrop' => true , :class => "btn btn-mini btn-primary"}  %>
-          <%= link_to 'Eliminar', admin_locality_path(locality), :method => :delete,:confirm => '¿Estas Seguro?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+  <% @localities.each do |locality| %>
+    <tr>
+      <td><%= locality.name %></td>
+      <td>
+        <%= link_to_edit(admin_locality_path(locality)) %>
+        <%= link_to_delete(admin_locality_path(locality)) %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 </div>

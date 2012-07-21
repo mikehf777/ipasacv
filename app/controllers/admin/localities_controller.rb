@@ -1,5 +1,6 @@
 class Admin::LocalitiesController < Admin::ResourceController
   def index
+    @titulo = "Lista de localidades"
     @localities = Locality.all
     respond_to do |format|
       format.html # index.html.erb
@@ -8,18 +9,9 @@ class Admin::LocalitiesController < Admin::ResourceController
     end
   end
 
-  def show
-    @locality = Locality.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @locality }
-      format.js
-    end
-  end
-
   def new
+    @titulo = "Agregar Localidad"
     @locality = Locality.new
-    @titulo = "Nueva Localidad"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @locality }
@@ -28,16 +20,16 @@ class Admin::LocalitiesController < Admin::ResourceController
   end
 
   def edit
+    @titulo = "Actualizar Localidad"
     @locality = Locality.find(params[:id])
-    @titulo = "Edita Localidad"
     respond_to do |format|
-      format.html # new.html.erb
       format.json { render json: @locality }
       format.js
     end
   end
 
   def create
+    @titulo = "Agregar Localidad"
     @locality = Locality.new(params[:locality])
     respond_to do |format|
       if @locality.save
@@ -51,6 +43,7 @@ class Admin::LocalitiesController < Admin::ResourceController
   end
 
   def update
+    @titulo = "Actualizar Localidad"
     @locality = Locality.find(params[:id])
     respond_to do |format|
       if @locality.update_attributes(params[:locality])
@@ -73,8 +66,9 @@ class Admin::LocalitiesController < Admin::ResourceController
   end
 
   def tab
+    @titulo = "Lista de localidades"
     @localities = Locality.all
-     respond_to do |format|
+    respond_to do |format|
       format.html
     end
   end 

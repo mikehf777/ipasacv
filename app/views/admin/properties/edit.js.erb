@@ -1,4 +1,4 @@
 $(document).ready(function() {
-$('.modal-body').empty();
-$('.modal-body').html("<%= escape_javascript render(:file => 'admin/properties/edit', :formats => [:html])  %>");
+	$('.modal-body').empty();	
+	$('.modal-body').html("<%= escape_javascript render :partial => 'form' %>");                   
 });

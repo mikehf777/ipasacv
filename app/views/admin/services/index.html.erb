@@ -1,11 +1,8 @@
-<%- model_class = Service.new.class -%>
-  <div class="page-header">
-    <h1>Lista de servicios</h1>
-  </div>
+<h1><%= @titulo %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:nombre) %></th>
+      <th>Nombre</th>
       <th>Opciones</th>
     </tr>
   </thead>
@@ -14,32 +11,8 @@
       <tr>
         <td><%= service.nombre %></td>
         <td>
-          <%= link_to 'Mostrar',
-            admin_service_path(service), 
-            { :remote => true, 
-              'data-toggle' =>  "modal",
-              'data-target' => "#modal-window", 
-              'data-keyboard' => true,
-              'data-backdrop' => true,
-              :class => "btn btn-mini btn-success"
-            }
-          %>
-          <%= link_to 'Editar',
-            edit_admin_service_path(service),
-            { :remote => true ,
-              'data-toggle' =>  "modal",
-              'data-target' => "#modal-window",
-              'data-keyboard' => true ,
-              'data-backdrop' => true ,
-              :class => "btn btn-mini btn-primary"
-            }
-          %>
-          <%= link_to 'Eliminar',
-            admin_service_path(service),
-            :method => :delete,
-            :confirm => '¿Estas Seguro?',
-            :class => 'btn btn-mini btn-danger'
-          %>
+          <%= link_to_edit(admin_service_path(service)) %>
+          <%= link_to_delete(admin_service_path(service)) %>
         </td>
       </tr>
     <% end %>

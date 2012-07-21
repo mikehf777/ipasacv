@@ -8,15 +8,6 @@ class Admin::ServicesController < Admin::ResourceController
     end
   end
 
-  def show
-    @service = Service.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @service }
-      format.js
-    end
-  end
-
   def new
     @service = Service.new
     respond_to do |format|

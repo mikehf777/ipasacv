@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>Lista de Perfiles</h1>
-</div>
+<h1><%= @titulo %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -12,39 +10,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.nombre %></td>
-        <td><%= profile.descripcion %></td>
-        <td><%= profile.type.name %></td>
-        <td><%= profile.property.name %></td>
-        <td>
-          <%= link_to raw('<i class="icon-th-list icon-white"></i>Mostrar'),
-           admin_profile_path(profile) ,
-           {:remote => true ,
-           	'data-toggle' =>  "modal", 
-           	'data-target' => "#modal-window",
-           	'data-keyboard' => true , 
-           	'data-backdrop' => true , 
-           	:class => "btn btn-mini btn-success"
-           	}  %>
-          <%= link_to raw('<i class="icon-pencil icon-white"></i>Editar'), 
-          edit_admin_profile_path(profile) ,
-           {:remote => true , 
-           	'data-toggle' =>  "modal",
-           	'data-target' => "#modal-window", 
-           	'data-keyboard' => true , 
-           	'data-backdrop' => true , 
-           	:class => "btn btn-mini btn-primary"
-           	}  %>
-          <%= link_to raw('<i class="icon-trash icon-white"></i>Eliminar'), 
-          admin_profile_path(profile), 
-          :method => :delete,
-          :confirm => '¿Estas Seguro?', 
-          :class => 'btn btn-mini btn-danger' 
-          %>
-        </td>
-      </tr>
-    <% end %>
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.nombre %></td>
+      <td><%= profile.descripcion %></td>
+      <td><%= profile.type.name %></td>
+      <td><%= profile.property.name %></td>
+      <td>
+        <%= link_to_show(admin_profile_path(profile)) %>
+        <%= link_to_edit(admin_profile_path(profile)) %>
+        <%= link_to_delete(admin_profile_path(profile)) %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
