@@ -26,12 +26,14 @@ Ipasa::Application.routes.draw do
       match "servicios", :to => "services#tab"
       match "tiposinmueble", :to => "types#tab"
       match "arrendamientos",:to => "leases#tab"
+      match "videos",:to => "videos#tab"
       resources :properties
       resources :profiles
       resources :leases
       resources :localities
       resources :services
       resources :types
+      resources :videos
   end
   match 'message'   => 'messages#new', :as => 'message', :via => :get
   match 'message'   => 'messages#create', :as => 'message', :via => :post

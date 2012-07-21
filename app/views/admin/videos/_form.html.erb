@@ -1,0 +1,8 @@
+<%= simple_form_for([:admin , @video], :html => { :class => 'form-horizontal' }) do |f| %>
+<%= f.input :url %>
+<%= f.input :descripcion %>
+<%= f.simple_fields_for :images do |builder| %>
+    <%= render :partial => 'image_fields', :locals => { :f => builder } %>
+  <% end %>
+    <%= f.button :submit %>
+<% end %>
