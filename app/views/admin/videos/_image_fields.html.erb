@@ -1,0 +1,8 @@
+<% unless f.object.new_record? %>
+    <%= link_to image_tag(f.object.image.url(:thumb)) , f.object.image.url(:original) %>
+    <%= f.input :image_description %>
+    <%= f.input :_destroy, :as => :boolean %>
+<% else %>
+    <%= f.input :image %>
+    <%= f.input :image_description %>
+<%end%>

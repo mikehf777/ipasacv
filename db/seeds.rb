@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email:"pmay@gmail.com", password:"123123", password_confirmation:"123123")
+User.create(email:"axool@promovision.com", password:"77RedRiver", password_confirmation:"77RedRiver")
 Locality.create(name:"Cancun")
 Property.create(locality_id:1,
 	name:"Residencial Milenio",
