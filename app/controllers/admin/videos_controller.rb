@@ -1,5 +1,6 @@
 class  Admin::VideosController < Admin::ResourceController
   def index
+    @titulo = "Lista de videos"
     @videos = Video.all
     respond_to do |format|
       format.html # index.html.erb
@@ -8,17 +9,8 @@ class  Admin::VideosController < Admin::ResourceController
     end
   end
 
-  def show
-    @video = Video.find(params[:id])
-    1.times { @video.images.build }
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @video }
-      format.js
-    end
-  end
-
   def new
+    @titulo = "Agregar video"
     @video = Video.new
     1.times { @video.images.build }
     respond_to do |format|
@@ -29,10 +21,17 @@ class  Admin::VideosController < Admin::ResourceController
   end
 
   def edit
+    @titulo = "Actualizar video"
     @video = Video.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @video }
+      format.js
+    end
   end
 
   def create
+    @titulo = "Agregar video"
     @video = Video.new(params[:video])
     respond_to do |format|
       if @video.save
@@ -58,20 +57,19 @@ class  Admin::VideosController < Admin::ResourceController
     end
   end
 
-  def tab
-    @videos = Video.all
-     respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
     respond_to do |format|
       format.html { redirect_to action:"tab" }
       format.json { head :no_content }
+    end
+  end
+
+  def tab
+    @videos = Video.all
+     respond_to do |format|
+      format.html
     end
   end
 end

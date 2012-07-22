@@ -198,19 +198,58 @@ es:
     errors:
       <<: *errors
     models:
+      lease:
+        one: 'Arrendamiento'
+        many: 'Arrendamientos'
       locality:
-        one: 'localidad'
-        many: 'localidades'
+        one: 'Localidad'
+        many: 'Localidades'
+      profile:
+        one: 'Perfil'
+        many: 'Perfiles'
       property:
-        one: 'propiedad'
-        many: 'propiedades'
+        one: 'Propiedad'
+        many: 'Propiedades'
+      service:
+        one: 'Servicio'
+        many: 'Servicios'
+      type:
+        one: 'Tipo'
+        many: 'Tipos'
+      video:
+        one: 'Video'
+        many: 'Videos'
     attributes:
+      lease:
+        num_int: 'Número interior'
+        status_renta: 'En renta'
+        precio: 'Precio'
+        descripcion: 'Descripción'
+        profile: 'Perfil'
       locality:
-        name: 'nombre'
+        name: 'Nombre'
+      photo:
+        photo: 'Ruta del archivo'
+        photo_descripcion: 'Descripción de la foto'
+      picture:
+        picture: 'Ruta del archivo'
+        picture_descripcion: 'Descripción de la foto'
+      profile:
+        nombre: 'Nombre'
+        descripcion: 'Descripción'
+        recamaras: 'No. de Recámaras'
+        banos: 'No. de Baños'
+        sala: '¿Tiene sala?'
+        cocina: '¿Tiene cocina?'
+        cuarto: '¿Tiene cuarto?'
+        type: 'Tipo de inmueble'
+        property: 'Propiedad'
       property:
-        locality: 'localidad'
-        name: 'nombre'
-        address: 'dirección'
-        catastral_reference: 'clave catastral'
-        google_maps: 'ubicación geográfica'
-        description: 'descripción'
+        locality: 'Localidad'
+        name: 'Nombre'
+        address: 'Dirección'
+        catastral_reference: 'Clave catastral'
+        google_maps: 'Ubicación geográfica'
+        description: 'Descripción'
+      service:
+        nombre: 'Nombre'

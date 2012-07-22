@@ -2,7 +2,7 @@
 <%= simple_form_for([:admin, @profile], :html => {:class => 'form-horizontal' }) do |f| %>
   <%= f.input :nombre %>
   <%= f.input :descripcion %>
-  <%= f.association :type %>
+  <%= f.association :type, :as => :radio %>
   <%= f.association :property %>
   <%= f.input :recamaras %>
   <%= f.input :banos %>
