@@ -1,5 +1,4 @@
 class DocumentsController < ApplicationController
-
   def index
     @documents = Document.all
     respond_to do |format|

@@ -5,10 +5,10 @@
 <input class="search buscarsrch" onclick="this.value=''" placeholder="Escriba aqui" />
 			<ul class="list" id="itemContainer">
 	    <% @leases.each_with_index do |leas| %>
-	    <li>><div class="Box">
+	    <li><div class="Box">
 			<h2 class="center name"><%= leas.profile.type.name %> en <%= leas.profile.property.name %></h2>
 			<p class="center dir"><%= leas.profile.property.address %></p>
-			<p class="mas">$ <%= leas.precio%> precio <%=leas.descripcion%> <%=leas.profile.property.locality.name%> <%=leas.profile.property.description%></p>
+			<p class="mas">$ <%= leas.precio%> <%=leas.descripcion%> <%=leas.profile.property.locality.name%> <%=leas.profile.property.description%></p>
 			<div class="ContenedorImagenes center">
 				<% leas.profile.photos.each do |image| %>
 				<%= link_to asset_path(image.photo.url(:large)), class: "picture", :title=>image.photo_descripcion,:rel=>"propidad_gal" do  %>
@@ -37,8 +37,6 @@
 						:class => "btn btn-primary btn-mini"
 					}
 				%>
-				<a class="btn btn-primary btn-mini" href="#contacto_logo">Contacto</a>
-
 			</div>
 		</div></li>		
 		<% end %>
