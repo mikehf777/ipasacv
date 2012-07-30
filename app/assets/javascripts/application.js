@@ -22,6 +22,14 @@ $(document).ready(function() {
 		'height'			: '75%',
 		'type'				: 'iframe'
 	});
+		$('.media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});
+	
 	$(".picture").fancybox({
 	helpers: {
 		title : { 'type' : 'inside'

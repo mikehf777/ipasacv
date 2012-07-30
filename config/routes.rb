@@ -11,7 +11,6 @@ Ipasa::Application.routes.draw do
   resources :surcharges
   resources :documents  
   resources :duties  
-  resources :videos
   resources :leases
   resources :localities
   resources :properties
@@ -26,7 +25,7 @@ Ipasa::Application.routes.draw do
       match "servicios", :to => "services#tab"
       match "tiposinmueble", :to => "types#tab"
       match "arrendamientos",:to => "leases#tab"
-      match "videos",:to => "videos#tab"
+      match "Videos",:to=> "videos#tab"
       resources :properties
       resources :profiles
       resources :leases

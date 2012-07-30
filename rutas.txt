@@ -1,0 +1,165 @@
+    new_user_session GET    /users/sign_in(.:format)             devise/sessions#new
+        user_session POST   /users/sign_in(.:format)             devise/sessions#create
+destroy_user_session DELETE /users/sign_out(.:format)            devise/sessions#destroy
+       user_password POST   /users/password(.:format)            devise/passwords#create
+   new_user_password GET    /users/password/new(.:format)        devise/passwords#new
+  edit_user_password GET    /users/password/edit(.:format)       devise/passwords#edit
+                     PUT    /users/password(.:format)            devise/passwords#update
+                root        /                                    pages#home
+            profiles GET    /profiles(.:format)                  profiles#index
+                     POST   /profiles(.:format)                  profiles#create
+         new_profile GET    /profiles/new(.:format)              profiles#new
+        edit_profile GET    /profiles/:id/edit(.:format)         profiles#edit
+             profile GET    /profiles/:id(.:format)              profiles#show
+                     PUT    /profiles/:id(.:format)              profiles#update
+                     DELETE /profiles/:id(.:format)              profiles#destroy
+               types GET    /types(.:format)                     types#index
+                     POST   /types(.:format)                     types#create
+            new_type GET    /types/new(.:format)                 types#new
+           edit_type GET    /types/:id/edit(.:format)            types#edit
+                type GET    /types/:id(.:format)                 types#show
+                     PUT    /types/:id(.:format)                 types#update
+                     DELETE /types/:id(.:format)                 types#destroy
+               rents GET    /rents(.:format)                     rents#index
+                     POST   /rents(.:format)                     rents#create
+            new_rent GET    /rents/new(.:format)                 rents#new
+           edit_rent GET    /rents/:id/edit(.:format)            rents#edit
+                rent GET    /rents/:id(.:format)                 rents#show
+                     PUT    /rents/:id(.:format)                 rents#update
+                     DELETE /rents/:id(.:format)                 rents#destroy
+    lease_structures GET    /lease_structures(.:format)          lease_structures#index
+                     POST   /lease_structures(.:format)          lease_structures#create
+ new_lease_structure GET    /lease_structures/new(.:format)      lease_structures#new
+edit_lease_structure GET    /lease_structures/:id/edit(.:format) lease_structures#edit
+     lease_structure GET    /lease_structures/:id(.:format)      lease_structures#show
+                     PUT    /lease_structures/:id(.:format)      lease_structures#update
+                     DELETE /lease_structures/:id(.:format)      lease_structures#destroy
+      rent_documents GET    /rent_documents(.:format)            rent_documents#index
+                     POST   /rent_documents(.:format)            rent_documents#create
+   new_rent_document GET    /rent_documents/new(.:format)        rent_documents#new
+  edit_rent_document GET    /rent_documents/:id/edit(.:format)   rent_documents#edit
+       rent_document GET    /rent_documents/:id(.:format)        rent_documents#show
+                     PUT    /rent_documents/:id(.:format)        rent_documents#update
+                     DELETE /rent_documents/:id(.:format)        rent_documents#destroy
+            invoices GET    /invoices(.:format)                  invoices#index
+                     POST   /invoices(.:format)                  invoices#create
+         new_invoice GET    /invoices/new(.:format)              invoices#new
+        edit_invoice GET    /invoices/:id/edit(.:format)         invoices#edit
+             invoice GET    /invoices/:id(.:format)              invoices#show
+                     PUT    /invoices/:id(.:format)              invoices#update
+                     DELETE /invoices/:id(.:format)              invoices#destroy
+          surcharges GET    /surcharges(.:format)                surcharges#index
+                     POST   /surcharges(.:format)                surcharges#create
+       new_surcharge GET    /surcharges/new(.:format)            surcharges#new
+      edit_surcharge GET    /surcharges/:id/edit(.:format)       surcharges#edit
+           surcharge GET    /surcharges/:id(.:format)            surcharges#show
+                     PUT    /surcharges/:id(.:format)            surcharges#update
+                     DELETE /surcharges/:id(.:format)            surcharges#destroy
+           documents GET    /documents(.:format)                 documents#index
+                     POST   /documents(.:format)                 documents#create
+        new_document GET    /documents/new(.:format)             documents#new
+       edit_document GET    /documents/:id/edit(.:format)        documents#edit
+            document GET    /documents/:id(.:format)             documents#show
+                     PUT    /documents/:id(.:format)             documents#update
+                     DELETE /documents/:id(.:format)             documents#destroy
+              duties GET    /duties(.:format)                    duties#index
+                     POST   /duties(.:format)                    duties#create
+            new_duty GET    /duties/new(.:format)                duties#new
+           edit_duty GET    /duties/:id/edit(.:format)           duties#edit
+                duty GET    /duties/:id(.:format)                duties#show
+                     PUT    /duties/:id(.:format)                duties#update
+                     DELETE /duties/:id(.:format)                duties#destroy
+              leases GET    /leases(.:format)                    leases#index
+                     POST   /leases(.:format)                    leases#create
+           new_lease GET    /leases/new(.:format)                leases#new
+          edit_lease GET    /leases/:id/edit(.:format)           leases#edit
+               lease GET    /leases/:id(.:format)                leases#show
+                     PUT    /leases/:id(.:format)                leases#update
+                     DELETE /leases/:id(.:format)                leases#destroy
+          localities GET    /localities(.:format)                localities#index
+                     POST   /localities(.:format)                localities#create
+        new_locality GET    /localities/new(.:format)            localities#new
+       edit_locality GET    /localities/:id/edit(.:format)       localities#edit
+            locality GET    /localities/:id(.:format)            localities#show
+                     PUT    /localities/:id(.:format)            localities#update
+                     DELETE /localities/:id(.:format)            localities#destroy
+          properties GET    /properties(.:format)                properties#index
+                     POST   /properties(.:format)                properties#create
+        new_property GET    /properties/new(.:format)            properties#new
+       edit_property GET    /properties/:id/edit(.:format)       properties#edit
+            property GET    /properties/:id(.:format)            properties#show
+                     PUT    /properties/:id(.:format)            properties#update
+                     DELETE /properties/:id(.:format)            properties#destroy
+            messages GET    /messages(.:format)                  messages#index
+                     POST   /messages(.:format)                  messages#create
+         new_message GET    /messages/new(.:format)              messages#new
+        edit_message GET    /messages/:id/edit(.:format)         messages#edit
+             message GET    /messages/:id(.:format)              messages#show
+                     PUT    /messages/:id(.:format)              messages#update
+                     DELETE /messages/:id(.:format)              messages#destroy
+               pages GET    /pages(.:format)                     pages#index
+                     POST   /pages(.:format)                     pages#create
+            new_page GET    /pages/new(.:format)                 pages#new
+           edit_page GET    /pages/:id/edit(.:format)            pages#edit
+                page GET    /pages/:id(.:format)                 pages#show
+                     PUT    /pages/:id(.:format)                 pages#update
+                     DELETE /pages/:id(.:format)                 pages#destroy
+          admin_root        /admin(.:format)                     admin/base#index
+   admin_propiedades        /admin/propiedades(.:format)         admin/properties#tab
+      admin_perfiles        /admin/perfiles(.:format)            admin/profiles#tab
+   admin_localidades        /admin/localidades(.:format)         admin/localities#tab
+     admin_servicios        /admin/servicios(.:format)           admin/services#tab
+ admin_tiposinmueble        /admin/tiposinmueble(.:format)       admin/types#tab
+admin_arrendamientos        /admin/arrendamientos(.:format)      admin/leases#tab
+        admin_videos        /admin/videos(.:format)              admin/videos#tab
+    admin_properties GET    /admin/properties(.:format)          admin/properties#index
+                     POST   /admin/properties(.:format)          admin/properties#create
+  new_admin_property GET    /admin/properties/new(.:format)      admin/properties#new
+ edit_admin_property GET    /admin/properties/:id/edit(.:format) admin/properties#edit
+      admin_property GET    /admin/properties/:id(.:format)      admin/properties#show
+                     PUT    /admin/properties/:id(.:format)      admin/properties#update
+                     DELETE /admin/properties/:id(.:format)      admin/properties#destroy
+      admin_profiles GET    /admin/profiles(.:format)            admin/profiles#index
+                     POST   /admin/profiles(.:format)            admin/profiles#create
+   new_admin_profile GET    /admin/profiles/new(.:format)        admin/profiles#new
+  edit_admin_profile GET    /admin/profiles/:id/edit(.:format)   admin/profiles#edit
+       admin_profile GET    /admin/profiles/:id(.:format)        admin/profiles#show
+                     PUT    /admin/profiles/:id(.:format)        admin/profiles#update
+                     DELETE /admin/profiles/:id(.:format)        admin/profiles#destroy
+        admin_leases GET    /admin/leases(.:format)              admin/leases#index
+                     POST   /admin/leases(.:format)              admin/leases#create
+     new_admin_lease GET    /admin/leases/new(.:format)          admin/leases#new
+    edit_admin_lease GET    /admin/leases/:id/edit(.:format)     admin/leases#edit
+         admin_lease GET    /admin/leases/:id(.:format)          admin/leases#show
+                     PUT    /admin/leases/:id(.:format)          admin/leases#update
+                     DELETE /admin/leases/:id(.:format)          admin/leases#destroy
+    admin_localities GET    /admin/localities(.:format)          admin/localities#index
+                     POST   /admin/localities(.:format)          admin/localities#create
+  new_admin_locality GET    /admin/localities/new(.:format)      admin/localities#new
+ edit_admin_locality GET    /admin/localities/:id/edit(.:format) admin/localities#edit
+      admin_locality GET    /admin/localities/:id(.:format)      admin/localities#show
+                     PUT    /admin/localities/:id(.:format)      admin/localities#update
+                     DELETE /admin/localities/:id(.:format)      admin/localities#destroy
+      admin_services GET    /admin/services(.:format)            admin/services#index
+                     POST   /admin/services(.:format)            admin/services#create
+   new_admin_service GET    /admin/services/new(.:format)        admin/services#new
+  edit_admin_service GET    /admin/services/:id/edit(.:format)   admin/services#edit
+       admin_service GET    /admin/services/:id(.:format)        admin/services#show
+                     PUT    /admin/services/:id(.:format)        admin/services#update
+                     DELETE /admin/services/:id(.:format)        admin/services#destroy
+         admin_types GET    /admin/types(.:format)               admin/types#index
+                     POST   /admin/types(.:format)               admin/types#create
+      new_admin_type GET    /admin/types/new(.:format)           admin/types#new
+     edit_admin_type GET    /admin/types/:id/edit(.:format)      admin/types#edit
+          admin_type GET    /admin/types/:id(.:format)           admin/types#show
+                     PUT    /admin/types/:id(.:format)           admin/types#update
+                     DELETE /admin/types/:id(.:format)           admin/types#destroy
+                     GET    /admin/videos(.:format)              admin/videos#index
+                     POST   /admin/videos(.:format)              admin/videos#create
+     new_admin_video GET    /admin/videos/new(.:format)          admin/videos#new
+    edit_admin_video GET    /admin/videos/:id/edit(.:format)     admin/videos#edit
+         admin_video GET    /admin/videos/:id(.:format)          admin/videos#show
+                     PUT    /admin/videos/:id(.:format)          admin/videos#update
+                     DELETE /admin/videos/:id(.:format)          admin/videos#destroy
+             message GET    /message(.:format)                   messages#new
+             message POST   /message(.:format)                   messages#create

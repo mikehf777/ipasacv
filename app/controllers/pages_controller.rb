@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @titulo = "Home"
     @leases=Lease.where('status_renta'=> false)
     @message = Message.new
+    @videos = Video.all
   end
 
   def show

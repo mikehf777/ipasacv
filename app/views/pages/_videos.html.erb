@@ -1,3 +1,14 @@
-					<section id="videos" class="section">
-						<article id="div_propiedad"></article>			    					  
-					</section>
+<section id="videos" class="section">
+	<article id="div_propiedad">
+	<ul id="ContVideo">
+	<% @videos.each_with_index do |video| %>
+	<% video.images.each do |img| %>
+		<li class="video"><%= link_to video.url, class: "media", :title=>img.image_description do  %>
+        <%= image_tag(img.image.url(:large), :size=>"180x180") %>
+        <% end %></li>
+        <% end %>
+	<% end %>
+	</ul>
+	<div class="paginador"></div>
+	</article>			    					  
+</section>
