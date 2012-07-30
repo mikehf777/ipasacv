@@ -220,6 +220,9 @@ es:
         one: 'Video'
         many: 'Videos'
     attributes:
+      video:
+        url: 'Enlace del video'
+        descripcion: 'Descripción'
       lease:
         num_int: 'Número interior'
         status_renta: 'En renta'
@@ -253,3 +256,6 @@ es:
         description: 'Descripción'
       service:
         nombre: 'Nombre'
+      image:
+        image: 'Ruta del archivo'
+        image_description: 'Descripción de la imagen'

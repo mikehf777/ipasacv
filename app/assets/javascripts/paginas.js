@@ -10,7 +10,7 @@
         endRange     : 1
     });
     
-     $("div.paginador").jPages({
+     $("div.pag").jPages({
         containerID  : "ContVideo",
         perPage      : 4,
         startPage    : 1,

@@ -1,6 +1,6 @@
 class Admin::LeasesController < Admin::ResourceController
   def index
-    @leases = Lease.all
+    @leases = Lease.find(:all)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @leases } 

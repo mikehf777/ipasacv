@@ -1,5 +1,5 @@
 <h1><%= @titulo %></h1>
 <%= simple_form_for [:admin, @type], :html => {:class => 'form-horizontal' } do |f| %>
-	<%= f.input :name %>
+	<%= f.input :name, :label=>"Nombre del tipo" %>
 	<%= f.button :submit %>
 <% end %>

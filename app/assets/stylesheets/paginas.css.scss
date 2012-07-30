@@ -46,7 +46,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////
-.paginador {
+.pag {
     top:100px;
     height: 30px;
     margin-left:auto;
@@ -56,37 +56,37 @@
     text-align:center;
 }
 
-.paginador a {
+.pag a {
   font-size: 18px;
   cursor: pointer;
   margin: 0 5px;
   color: #bbb;
 }
 
-.paginador a:hover {
+.pag a:hover {
   background-color: #222;
   color: #fff;
 }
 
-.paginador a.jp-previous { margin-right: 15px; }
-.paginador a.jp-next { margin-left: 15px; }
+.pag a.jp-previous { margin-right: 15px; }
+.pag a.jp-next { margin-left: 15px; }
 
-.paginador a.jp-current, a.jp-current:hover { 
+.pag a.jp-current, a.jp-current:hover { 
   color: #FF4242;
   font-weight: bold;
 }
 
-.paginador a.jp-disabled, a.jp-disabled:hover {
+.pag a.jp-disabled, a.jp-disabled:hover {
   color: #333;
 }
 
-.paginador a.jp-current, a.jp-current:hover,
-.paginador a.jp-disabled, a.jp-disabled:hover {
+.pag a.jp-current, a.jp-current:hover,
+.pag a.jp-disabled, a.jp-disabled:hover {
   cursor: default; 
   background: none;
 }
 
-.paginador span { margin: 0 5px; }
+.pag span { margin: 0 5px; }
 
 
 
